@@ -30,8 +30,8 @@ jobs:
       - name: Sync folders and files to the server
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          FTP_SERVER: ${{ secrets.FTP_SERVER }}
-          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
-          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
           source: dist/portfolio
           target: /home/gutovnet/repositories/portfolio
