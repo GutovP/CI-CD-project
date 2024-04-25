@@ -11,8 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        shell: bash
-        working-directory: ${{ github.workspace }}/dist
+        working-directory: /github/workspace/dist/portfolio
 
     steps:
       - name: Checkout the repository on the virtual machine
@@ -37,5 +36,5 @@ jobs:
           ftp_host: ${{ secrets.FTP_SERVER }}
           ftp_username: ${{ secrets.FTP_USERNAME }}
           ftp_password: ${{ secrets.FTP_PASSWORD }}
-          local_source_dir: "dist"
+          local_source_dir: "dist/portfolio"
           dist_target_dir: "/repositories/portfolio"
