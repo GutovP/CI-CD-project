@@ -34,4 +34,4 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
 
-          server-dir: /public_html/
+          server-dir: /home/user/gutov.net/repositories/
