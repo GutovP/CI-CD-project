@@ -33,5 +33,5 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          source: dist/portfolio
-          target: /home/gutovnet/repositories/portfolio
+          local-dir: dist/portfolio/
+          server-dir: /home/gutovnet/repositories/portfolio/
