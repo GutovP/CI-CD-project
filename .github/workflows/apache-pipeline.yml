@@ -7,13 +7,10 @@ on:
     branches: ["main"]
 
 jobs:
-  build-angular-app:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: /github/workspace/dist/portfolio
+  - build-angular-app:
+    - runs-on: ubuntu-latest
 
-    steps:
+    - steps:
       - name: Checkout the repository on the virtual machine
       -  uses: actions/checkout@v4
       - name: Use Node.js version 20.x
