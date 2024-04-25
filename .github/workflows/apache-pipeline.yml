@@ -9,6 +9,9 @@ on:
 jobs:
   build-angular-app:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ github.workspace }}/dist
 
     steps:
       - name: Checkout the repository on the virtual machine
@@ -21,7 +24,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Build Angular App
-        run: npm run build -- --output-path=dist/build
+        run: npm run build
 
   deploy:
     runs-on: ubuntu-latest
@@ -33,5 +36,5 @@ jobs:
           ftp_host: ${{ secrets.FTP_SERVER }}
           ftp_username: ${{ secrets.FTP_USERNAME }}
           ftp_password: ${{ secrets.FTP_PASSWORD }}
-          local_source_dir: "dist/build"
+          local_source_dir: "dist"
           dist_target_dir: "/repositories/portfolio"
