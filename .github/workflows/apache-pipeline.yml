@@ -28,11 +28,11 @@ jobs:
     needs: build-angular-app
     steps:
       - name: Sync folders and files to the server
-        uses: easingthemes/ssh-deploy@main
-        with:
-          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-          REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
-          source: dist/portfolio
-          target: /home/gutovnet/repositories/portfolio
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        port: ${{ secrets.FTP_PORT }}
+        local-dir: dist/portfolio
+        remote-dir: /home/gutovnet/repositories
