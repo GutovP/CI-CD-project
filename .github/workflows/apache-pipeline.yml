@@ -22,6 +22,8 @@ jobs:
         run: npm install
       - name: Build Angular App
         run: npm run build
+      - name: List contents of local directory
+        run: ls -l /home/runner/work/CI-CD-project/CI-CD-project/dist/portfolio
 
   deploy:
     runs-on: ubuntu-latest
