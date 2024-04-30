@@ -9,7 +9,7 @@ on:
 jobs:
   build-angular-app:
     runs-on: ubuntu-latest
-
+      
     steps:
       - name: Checkout the repository on the virtual machine
         uses: actions/checkout@v4
@@ -22,19 +22,15 @@ jobs:
         run: npm install
       - name: Build Angular App
         run: npm run build
-
-  upload-build-files:      
-    runs-on: ubuntu-latest
-    needs: build-angular-app
       - name: upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: angular-build
           path: "./dist/"
-
+      
   deploy:
     runs-on: ubuntu-latest
-    needs: upload-build-files
+    needs: build-angular-app
     steps:
       - name: download artifact
         uses: actions/download-artifact@v4
