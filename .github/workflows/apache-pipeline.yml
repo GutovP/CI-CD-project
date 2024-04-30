@@ -27,11 +27,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: build-angular-app
     steps:
-      - name: Sync folders and files to the server
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: Deploy to production
+        uses: JorgeLNJunior/render-deploy@v1.4.4
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftps
-          port: 21
+          service_id: ${{ secrets.MY_RENDER_SERVICE_ID }}
+          api_key: ${{ secrets.MY_RENDER_API_KEY }}
+          wait_deploy: true
